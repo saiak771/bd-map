@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
+//import BdMap from './bd.svg'
+import {ReactComponent as ReactLogo} from './bd.svg'
+import { BrowserRouter, Route, Link, Routes } from 'react-router-dom'
+import About from './components/About'
 
-function App() {
+
+const App = () => {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className='App'>
+        <BrowserRouter>
+        <nav>
+          <div className="nav-bar">
+            <h3>Bangladesh</h3>
+            <img src="https://www.nationsonline.org/gallery/Bangladesh/Bangladesh-Flag.jpg" alt="Bangladesh Flag" width="50" title="Flag of Bangladesh"></img>
+        
+          
+            <Link to="/about">About</Link>
+        
+          
+          </div>
+        </nav>
+        <Routes>
+          <Route path="/about" element={<About />} />
+        </Routes>
+        </BrowserRouter>
+        <div className="mapdiv">
+          <ReactLogo />
+        </div>
+    
+      </div>
+
+      
+      
+
   );
+
 }
 
 export default App;
